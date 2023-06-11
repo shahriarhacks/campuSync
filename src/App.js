@@ -1,10 +1,15 @@
+import { QueryClient, QueryClientProvider } from "react-query";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/router";
+
+const queryClient = new QueryClient();
+
 export default function App() {
   return (
-   <div>
-     <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    <h2>Hello there</h2>
-   </div>
-  )
+    <div>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}/>
+      </QueryClientProvider>
+    </div>
+  );
 }
